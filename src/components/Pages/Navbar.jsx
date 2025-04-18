@@ -19,33 +19,44 @@ function Navbar() {
     };
 
     return (
-        <div>
-            <header className="sticky top-0 z-50 py-8 flex items-center shadow-md bg-[var(--black-theme-background-color)]">
+        <>
+            <header className="sticky top-0 z-50 py-8 max-sm:py-4 flex items-center shadow-md bg-[var(--black-theme-background-color)] w-full block mx-auto">
                 {/* SMARTZONE LOGO */}
                 <div className="ml-4 lg:ml-40">
-                    <img src={LogoLight} alt="Smartzone Logo" className="h-8 w-full" />
+                    <img src={LogoLight} alt="Smartzone Logo" className="h-8 max-sm:h-5 w-full" />
                 </div>
 
                 {/* SEARCHBAR */}
                 <div className={`relative mx-auto lg:mx-0 lg:absolute lg:left-1/2 lg:-translate-x-1/2 rounded-md ${isInputFocused ? 'shadow-[0px_0px_5px_2px_var(--black-theme-background-color2)]' : ''}`}>
                     <div className={`search-container flex items-center rounded-md overflow-hidden border ${isInputFocused ? 'bg-[var(--black-theme-background-color)] border-[var(--black-theme-background-color)]' : "bg-[var(--black-theme-searchbar-background-color)] border-[var(--black-theme-searchbar-background-color)]"}`}>
+
+                        <div className="max-sm:ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search icon-theme-dark" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                            </svg>
+                        </div>
+
                         <input
                             type="text"
                             placeholder="Czego szukasz?"
-                            className="px-4 py-2 focus:outline-none w-full lg:w-100 text-[var(--black-theme-text-color)] bg-transparent"
+                            className="px-4 py-2 max-sm:px-4 max-sm:py-1 focus:outline-none w-full lg:w-100 text-[var(--black-theme-text-color)] bg-transparent"
                             onFocus={handleInputFocus}
                             onBlur={handleInputBlur}
                         />
 
-                        <div className="h-6 border-l border-[var(--black-theme-text-color)] ml-1 bg-transparent"></div>
+                        <div className="hidden sm:flex md:flex lg:flex items-center">
 
-                        <button className="select-wrapper px-4 py-2 focus:outline-none bg-transparent cursor-pointer">Wszystko</button>
+                            <div className="h-6 border-l border-[var(--black-theme-text-color)] ml-1 bg-transparent"></div>
 
-                        <button className="text-gray-800 bg-[var(--black-theme-interaction-background-color)] w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[var(--black-theme-interaction-background-hover-color)] cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                            </svg>
-                        </button>
+                            <button className="select-wrapper px-4 py-2 focus:outline-none bg-transparent cursor-pointer">Wszystko</button>
+
+                            <button className="text-gray-800 bg-[var(--black-theme-interaction-background-color)] w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[var(--black-theme-interaction-background-hover-color)] cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                </svg>
+                            </button>
+
+                        </div>
                     </div>
                 </div>
 
@@ -73,7 +84,7 @@ function Navbar() {
             </header>
 
             {/* NAVBAR BUTTONS - MOBILE/TABLET */}
-            <nav className="fixed bottom-0 left-0 w-full bg-[var(--black-theme-background-color)] shadow-lg z-50 flex justify-around items-center py-1 sm:hidden md:hidden lg:hidden">
+            <nav className="fixed bottom-0 left-0 right-0 w-full bg-[var(--black-theme-background-color)] shadow-lg z-50 flex justify-around items-center py-1 sm:hidden md:hidden lg:hidden">
                 <div className="flex items-center">
                     {/* HOME */}
                     <div className="mr-2 flex flex-col items-start py-2 px-2 hover:bg-[var(--black-theme-searchbar-background-color)] hover:rounded-md cursor-pointer">
@@ -112,7 +123,7 @@ function Navbar() {
 
                 </div>
             </nav>
-        </div>
+        </>
     );
 }
 
